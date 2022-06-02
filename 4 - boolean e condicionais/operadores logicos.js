@@ -2,30 +2,30 @@
 if (false)
   if (0)
     if (NaN)
-      // ou -0
       if (null)
         if (undefined)
+          // ou -0
           if ('')
             if (true)
-              // ou "" ou ``
-
-              // Truthy
               if (1)
                 if (' ')
+                  // ou "" ou ``
+
+                  // Truthy
                   if ('andre')
                     if (-5)
                       if ({})
                         if (!true)
-                          // Truthy
                           if (!1)
-                            // false
                             if (!'')
-                              // false
+                              // Truthy
                               if (!undefined)
-                                // true
+                                // false
                                 if (!!' ')
-                                  // true
+                                  // false
                                   if (!!'')
+                                    // true
+                                    // true
                                     // true
                                     // false
 

@@ -1,57 +1,63 @@
-function areaQuadrada(lado) {
-  return lado * lado;
+// Crie uma função para verificar se um valor é Truthy
+function isTruthy(dado) {
+  return !!dado;
 }
-console.log(areaQuadrada(2));
 
-function pi() {
-  return 3.14;
+console.log(isTruthy(''));
+
+// Crie uma função matemática que retorne o perímetro de um quadrado
+// lembrando: perímetro é a soma dos quatro lados do quadrado
+
+function quadrado(lado) {
+  return lado * 4;
 }
-var total = 5 * pi();
-console.log(pi());
+console.log(quadrado(2));
 
-function imc(peso, altura) {
-  let imc = peso / (altura * altura);
-  return imc;
+// Crie uma função que retorne o seu nome completo
+
+// ela deve possuir os parâmetros: nome e sobrenome
+function nomeCompleto(nome, sobrenome) {
+  return `Nome completo => ${nome + sobrenome}`;
 }
-console.log(imc(80, 1.8));
+console.log(nomeCompleto('Fernando', ' Mercado'));
 
-function corFavorita(cor) {
-  if (cor === 'azul') {
-    return 'Eu gosto do ceu';
-  } else if (cor === 'verde') {
-    return ' eu gosto de mato';
+// Crie uma função que verifica se um número é par
+function numPar(num) {
+  let calc = num % 2;
+  if (calc === 0) {
+    return `E par`;
   } else {
-    return 'Eu nao gosto de cores';
+    return ` E impar`;
   }
 }
 
-console.log(corFavorita('azul'));
+console.log(numPar(3));
+
+// Crie uma função que retorne o tipo de
+// dado do argumento passado nela (typeof)
+
+function tipoDado(dado) {
+  return typeof dado;
+}
+
+console.log(tipoDado(5));
+
+// addEventListener é uma função nativa do JavaScript
+// o primeiro parâmetro é o evento que ocorre e o segundo o Callback
+// utilize essa função para mostrar no console o seu nome completo
+// quando o evento 'scroll' ocorrer.
 
 addEventListener('click', function () {
-  console.log('oi');
+  console.log('Fernando Mercado');
 });
 
-function imc2(peso, altura) {
-  let imc = peso / (altura * altura);
-  return imc;
+// Corrija o erro abaixo
+var totalPaises = 193;
+function precisoVisitar(paisesVisitados) {
+  return `Ainda faltam ${totalPaises - paisesVisitados} países para visitar`;
 }
-console.log(imc2(80, 1.8));
-
-function terceiraIdade(idade) {
-  if (typeof idade !== 'number') {
-    return 'Informe a sua idade!';
-  } else if (idade >= 60) {
-    return true;
-  } else {
-    return false;
-  }
+function jaVisitei(paisesVisitados) {
+  return `Já visitei ${paisesVisitados} do total de ${totalPaises} países`;
 }
-
-console.log(terceiraIdade(50));
-
-let totalPaises = 193;
-function faltaVisitar(paisesQueVisitei) {
-  return `Faltam visitar ${totalPaises - paisesQueVisitei} paises`;
-}
-
-console.log(faltaVisitar(10));
+precisoVisitar(20);
+jaVisitei(20);

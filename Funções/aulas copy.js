@@ -55,3 +55,19 @@ function faltaVisitar(paisesQueVisitei) {
 }
 
 console.log(faltaVisitar(10));
+
+var profissao = 'Designer';
+
+function dados() {
+  var nome = 'André';
+  var idade = 28;
+  function outrosDados() {
+    var endereco = 'Rio de Janeiro';
+    var idade = 29;
+    return `${nome}, ${idade}, ${endereco}, ${profissao}`;
+  }
+  return outrosDados();
+}
+
+dados(); // Retorna 'André, 29, Rio de Janeiro, Designer'
+outrosDados(); // retorna um erro

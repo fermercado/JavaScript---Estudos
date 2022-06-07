@@ -1,36 +1,41 @@
-let pessoa = {
+// Crie um objeto com os seus dados pessoais
+// Deve possui pelo menos duas propriedades nome e sobrenome
+let nome = {
   nome: 'Fernando',
-  idade: '34',
+  Sobrenome: 'Mercado',
 };
 
-console.log(pessoa.idade);
+// Crie um método no objeto anterior, que mostre o seu nome completo
+nome.nomeCompleto = function () {
+  return `${this.nome} ${this.Sobrenome}`;
+};
+console.log(nome.nomeCompleto());
 
-let quadrado = {
-  lados: 4,
-  area: function (lado) {
-    return lado * lado;
+// Modifique o valor da propriedade preco para 3000
+var carro = {
+  preco: 1000,
+  portas: 4,
+  marca: 'Audi',
+};
+
+carro.preco = 3000;
+
+console.log(carro);
+
+// Crie um objeto de um cachorro que represente um labrador,
+// preto com 10 anos, que late ao ver um homem
+
+let dog = {
+  raca: 'Labrador',
+  cor: 'Preto',
+  idade: 10,
+  latir(pessoa) {
+    if (pessoa === 'homem') {
+      return 'Latiu';
+    } else {
+      return 'nada';
+    }
   },
-  perimetro: function (lado) {
-    return this.lados * lado;
-  },
 };
 
-console.log(quadrado.area(5));
-console.log(quadrado.perimetro(5));
-
-let menu = {
-  width: 800,
-  height: 50,
-  backgroundColor: '#84e',
-  metadeHeight() {
-    return this.height / 2;
-  },
-};
-menu.backgroundColor = '#000';
-menu.color = 'blue';
-
-menu.esconder = function () {
-  console.log('escondi');
-};
-
-let bg = menu.backgroundColor;
+console.log(dog.latir('homem'));

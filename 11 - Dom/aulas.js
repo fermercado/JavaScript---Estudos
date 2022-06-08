@@ -1,6 +1,13 @@
-const h1 = document.querySelector('h1');
+// Retorne o url da página atual utilizando o objeto window
+console.log(window.location.href);
 
-function callbackh1() {
-  console.log('clicou em ', h1.innerText);
-}
-h1.addEventListener('click', callbackh1);
+// Seleciona o primeiro elemento da página que
+// possua a classe ativo
+const el = document.querySelector('.ativo');
+
+// Retorne a linguagem do navegador
+console.log(window.navigator.language);
+
+// Retorne a largura da janela
+
+console.log(window.innerWidth);

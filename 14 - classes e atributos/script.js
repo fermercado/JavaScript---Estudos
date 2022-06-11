@@ -1,25 +1,25 @@
-const menu = document.querySelector('.menu');
+// Adicione a classe ativo a todos os itens do menu
+const menu = document.querySelectorAll('.menu a');
+menu.forEach((item) => {
+  item.classList.add('ativo');
+});
 
-menu.classList.add('ativo', 'teste');
-menu.classList.remove('teste');
-menu.classList.toggle('teste');
+// Remove a classe ativo de todos os itens do menu e mantenha apenas no primeiro
+menu.forEach((item) => {
+  item.classList.remove('ativo');
+});
+menu[0].classList.add('ativo');
 
-if (menu.classList.contains('teste')) {
-  menu.classList.add('Contem-Teste');
-} else {
-  menu.classList.add('nao-contem-teste');
-}
+// Verifique se as imagens possuem o atributo alt
 
-menu.className += ' Vermelho';
-console.log(menu.className);
+const imgs = document.querySelectorAll('img');
+imgs.forEach((img) => {
+  const possuiAtribute = img.hasAttribute('alt');
+  console.log(possuiAtribute);
+});
 
-const animais = document.querySelector('.animais');
-console.log(animais.attributes);
+// Modifique o href do link externo no menu
 
-const img = document.querySelector('img');
-const srcImg = img.getAttribute('alt');
-img.setAttribute('alt', 'É uma raposa');
+const link = document.querySelector('a[href^="http"]');
 
-const possuiAlt = img.hasAttribute('tittle');
-
-console.log(possuiAlt);
+link.setAttribute('href', 'https://www.google.com/');

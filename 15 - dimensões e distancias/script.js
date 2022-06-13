@@ -1,29 +1,49 @@
-const listaAnimais = document.querySelector('.animais-lista');
+// Verifique a distância da primeira imagem
+// em relação ao topo da página
 
-const height = listaAnimais.scrollHeight;
-const animaisTop = listaAnimais.offsetTop;
-console.log(height, animaisTop);
+const img = document.querySelector('img');
+const imgTop = img.getBoundingClientRect().top;
 
-const raposah2 = document.querySelector('h2');
-const primeiroh2 = raposah2.offsetLeft;
-const rect = raposah2.getBoundingClientRect();
-console.log(rect);
+console.log(imgTop);
 
-if (rect.top < 0) {
-  console.log('pasosou do elemento');
+// Retorne a soma da largura de todas as imagens
+function somaImagem() {
+  const imgs = document.querySelectorAll('img');
+  let soma = 0;
+  imgs.forEach((item) => {
+    soma = soma + item.offsetWidth;
+  });
+  console.log(soma);
 }
 
-console.log(
-  window.innerWidth,
-  window.outerWidth,
-  window.innerHeight,
-  window.outerHeight,
-  window.pageYOffset,
-);
+window.onload = function () {
+  somaImagem();
+};
 
-const small = window.matchMedia('(max-width: 600px)').matches;
+// Verifique se os links da página possuem
+// o mínimo recomendado para telas utilizadas
+// com o dedo. (48px/48px de acordo com o google)
+
+const links = document.querySelectorAll('a');
+links.forEach((link) => {
+  const linkWidth = link.offsetWidth;
+  const linkheight = link.offsetheight;
+
+  if (linkWidth >= 48 && linkheight >= 48) {
+    console.log(link, 'Possui Acessibilidade');
+  } else {
+    console.log(link, 'náo possui');
+  }
+});
+
+console.log(links);
+
+// Se o browser for menor que 720px,
+// adicione a classe menu-mobile ao menu
+
+const small = window.matchMedia('(max-width: 720px)').matches;
+
 if (small) {
-  console.log('usuario mobile');
-} else {
-  console.log('Usuário desktop');
+  const menu = document.querySelector('.menu');
+  menu.classList.add('menu-mobile');
 }

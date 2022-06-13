@@ -183,6 +183,10 @@ body {
   background-color: blue;
 }
 
+html.textoMaior {
+  font-size: 150%;
+}
+
 @media (max-width: 700px) {
   body {
     grid-template-columns: 1fr;

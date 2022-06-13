@@ -1,54 +1,43 @@
-// const img = document.querySelector('img');
-// function callback(event) {
-//   console.log(event);
-// }
-// // img.addEventListener('click', callback);
+// Quando o usuário clicar nos links internos do site,
+// adicione a classe ativo ao item clicado e remova dos
+// demais itens caso eles possuam a mesma. Previna
+// o comportamento padrão desses links
 
-// const listaAnimais = document.querySelector('.animais-lista');
+const linksInternos = document.querySelectorAll('a[href^="#"]');
+function handleLinkInterno(event) {
+  event.preventDefault();
+  linksInternos.forEach((item) => {
+    item.classList.remove('ativo');
+  });
 
-// function callbackLista(event) {
-//   console.log(event.currentTarget);
-//   console.log(event.target);
-//   console.log(event.type);
-// }
-
-// listaAnimais.addEventListener('click', callbackLista);
-
-// const linkEx = document.querySelector('a[href^="http"]');
-// function handleLinkEx(event) {
-//   event.preventDefault();
-//   console.log('clicou');
-// }
-// linkEx.addEventListener('click', handleLinkEx);
-
-// const h1 = document.querySelector('h1');
-
-// function handleEvent(event) {
-//   console.log(event.type, event);
-// }
-
-// h1.addEventListener('click', handleEvent);
-// h1.addEventListener('mouseenter', handleEvent);
-// h1.addEventListener('mousemove', handleEvent);
-
-// window.addEventListener('scroll', handleEvent);
-// window.addEventListener('resize', handleEvent);
-function handleKeyboard(event) {
-  if (event.key === 'f') {
-    document.body.classList.toggle('fullscreen');
-  }
-  if (event.key === 'b') {
-    document.body.classList.toggle('azul');
-  }
-}
-window.addEventListener('keydown', handleKeyboard);
-
-const imgs = document.querySelectorAll('img');
-
-function handleImg(event) {
-  console.log(event.currentTarget.getAttribute('src'));
+  this.classList.add('ativo');
 }
 
-imgs.forEach((item) => {
-  item.addEventListener('click', handleImg);
+linksInternos.forEach((item) => {
+  item.addEventListener('click', handleLinkInterno);
 });
+
+// Selecione todos os elementos do site começando a partir do body,
+// ao clique mostre exatamente quais elementos estão sendo clicados
+
+const todosElementos = document.querySelectorAll('body *');
+function handleElementos(event) {
+  // console.log(event.currentTarget);
+  event.currenttarget.remove();
+}
+
+// todosElementos.forEach((item) => {
+//   item.addEventListener('click', handleElementos);
+// });
+
+// Utilizando o código anterior, ao invés de mostrar no console,
+// remova o elemento que está sendo clicado, o método remove() remove um elemento
+
+// Se o usuário clicar na tecla (t), aumente todo o texto do site.
+function keyboardT(event) {
+  if (event.key === 't') {
+    document.documentElement.classList.toggle('textoMaior');
+  }
+}
+
+window.addEventListener('keydown', keyboardT);

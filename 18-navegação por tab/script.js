@@ -42,3 +42,30 @@ function initAccordion() {
 }
 
 initAccordion();
+
+function initScrollSuave() {
+  const linkInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+
+  function scrollSmoth(event) {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    const section = document.querySelector(href);
+    const top = section.offsetTop;
+
+    section.scrollIntoView({
+      behavior: 'smooth',
+      black: 'start',
+    });
+
+    // forma alternativa
+    // window.scrollTo({
+    //   top: top,
+    //   behavior: 'smooth',
+    // });
+  }
+
+  linkInternos.forEach((link) => {
+    link.addEventListener('click', scrollSmoth);
+  });
+}
+initScrollSuave();

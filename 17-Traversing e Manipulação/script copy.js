@@ -12,6 +12,10 @@
 // console.log(lista.nextElementSibling);
 // console.log(lista.previousElementSibling);
 
+// lista.children; // HTMLCollection com os filhos
+// lista.children[0]; // primeiro filho
+// lista.children[--lista.children.length]; // último filho
+
 // console.log(lista.childNodes);
 // const animais = document.querySelector('.animais');
 // const contato = document.querySelector('.contato');

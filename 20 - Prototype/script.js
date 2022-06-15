@@ -1,45 +1,37 @@
-function Pessoa(nome, idade) {
+// Crie uma função construtora de Pessoas
+// Deve conter nome, sobrenome e idade
+// Crie um método no protótipo que retorne
+// o nome completo da pessoa
+
+function Pessoa(nome, sobrenome, idade) {
   this.nome = nome;
-  this.idade = idade;
-  this.abracar = function () {
-    return this.nome + ' Abraçou';
-  };
-  this.andar = function () {
-    return 'Andou pelo objeto';
-  };
+  this.sobrenome = sobrenome;
+  this.idade = idade + ' anos';
 }
 
-Pessoa.prototype.andar = function () {
-  return this.nome + ' Andou';
-};
-Pessoa.prototype.nadar = function () {
-  return this.nome + ' nadou';
-};
-Pessoa.prototype.andar = function () {
-  return this.nome + ' Andou';
+Pessoa.prototype.nomeCompleto = function () {
+  return `${this.nome} ${this.sobrenome} tem ${this.idade}`;
 };
 
-let fernando = new Pessoa('Fernando', 34);
+const fernando = new Pessoa('Fernando', 'Mercado', 34);
 
-console.log(Pessoa.prototype);
-console.log(fernando);
+// Liste os métodos acessados por
+// dados criados com NodeList,
+// HTMLCollection, Document
+console.log(Object.getOwnPropertyNames(NodeList.prototype));
+console.log(Object.getOwnPropertyNames(HTMLCollection.prototype));
+console.log(Object.getOwnPropertyNames(Document.prototype));
 
-const pais = 'Brasil';
-const cidade = new String('Rio');
+// Liste os construtores dos dados abaixo
+const li = document.querySelector('li');
 
-console.log(cidade);
+li; // HTMLLIElement
+li.click; // function
+li.innerText; // String
+li.value; //Number
+li.hidden; // Bollean
+li.offsetLeft; //Number
+li.click(); // undefined
 
-const listaAnimais = ['cachorro', 'gato', 'cavalo'];
-
-const lista = document.querySelectorAll('li');
-const novoArray = Array.prototype.slice.call(lista);
-const outroArray = Array.from(lista);
-console.log(outroArray);
-
-const Carro = {
-  marca: 'Ford',
-  preco: 2000,
-  anda() {
-    return 'Andou';
-  },
-};
+// Qual o construtor do dado abaixo:
+li.hidden.constructor.name; // bollean

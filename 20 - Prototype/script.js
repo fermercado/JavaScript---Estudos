@@ -34,4 +34,4 @@ li.offsetLeft; //Number
 li.click(); // undefined
 
 // Qual o construtor do dado abaixo:
-li.hidden.constructor.name; // bollean
+li.hidden.constructor.name; // string

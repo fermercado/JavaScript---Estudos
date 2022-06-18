@@ -1,63 +1,81 @@
-// const frase = 'A melhor comida';
+// Utilizando o foreach na array abaixo,
+// some os valores de Taxa e os valores de Recebimento
 
-// console.log(frase[frase.length - 1]);
-// console.log(frase.charAt(frase.length - 1));
-const frase = 'A melhor linguagem é';
-const linguagem = ' JavaScript';
-
-const fraseFinal = frase.concat(linguagem);
-
-console.log(fraseFinal);
-
-const fruta = 'Banana';
-const listaFrutas = 'Melancia, Banana, Laranja';
-
-console.log(listaFrutas.includes(fruta)); // true
-console.log(fruta.includes(listaFrutas)); // false
-
-fruta.endsWith('nana'); // true
-fruta.startsWith('Ba'); // true
-fruta.startsWith('na'); // false
-
-const transacao1 = 'Depósito de cliente';
-const transacao2 = 'Depósito de fornecedor';
-const transacao3 = 'Taxa de camisas';
-
-transacao1.slice(0, 3); // Dep
-transacao2.slice(0, 3); // Dep
-transacao3.slice(0, 3); // Tax
-
-transacao1.slice(12); // cliente
-transacao1.slice(-4); // ente
-transacao1.slice(3, 6); // ósi
-
-console.log(fruta.indexOf('B'));
-console.log(fruta.lastIndexOf('a'));
-
-const listaPrecos = ['R$ 99', 'R$ 199', 'R$ 12000'];
-
-listaPrecos.forEach((item) => {
-  console.log(item.padStart(10, '..'));
+const transacoes = [
+  {
+    descricao: 'Taxa do Pão',
+    valor: 'R$ 39',
+  },
+  {
+    descricao: 'Taxa do Mercado',
+    valor: 'R$ 129',
+  },
+  {
+    descricao: 'Recebimento de Cliente',
+    valor: 'R$ 99',
+  },
+  {
+    descricao: 'Taxa do Banco',
+    valor: 'R$ 129',
+  },
+  {
+    descricao: 'Recebimento de Cliente',
+    valor: 'R$ 49',
+  },
+];
+let taxaTotal = 0;
+let recebimentoTotal = 0;
+transacoes.forEach((item) => {
+  const numeroLimpo = +item.valor.replace('R$ ', '');
+  if (item.descricao.slice(0, 4) === 'Taxa') {
+    taxaTotal = taxaTotal + numeroLimpo;
+  }
+  if (item.descricao.slice(0, 4) === 'Rece') {
+    recebimentoTotal += numeroLimpo;
+  }
 });
 
-let listaItens = 'Camisas Bonés Calças Bermudas Vestidos Saias';
-listaItens = listaItens.replace(/[ ]+/g, ', ');
+console.log(taxaTotal);
+console.log(recebimentoTotal);
 
-console.log(listaItens);
+// Retorne uma array com a lista abaixo
+const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
 
-const arrayLista = listaItens.split(', ');
-console.log(arrayLista);
+const newTrans = transportes.split(';');
 
-const htmlText = '<div>O melhor item</div><div>A melhor lista</div>';
+console.log(newTrans);
 
-const htmlArray = htmlText.split('div');
-const novoHtml = htmlArray.join('section');
+// Substitua todos os span's por a's
+let html = `<ul>
+                <li><span>Sobre</span></li>
+                <li><span>Produtos</span></li>
+                <li><span>Contato</span></li>
+              </ul>`;
 
-console.log(htmlText);
-console.log(htmlArray);
-console.log(novoHtml);
+// const newHtml = html.replace(/[span]+/g, 'a');
+html = html.split('span').join('a');
+console.log(html);
 
-const valor = '  R$ 23.00   ';
-valor.trim(); // 'R$ 23.00'
-valor.trimStart(); // 'R$ 23.00   '
-valor.trimEnd(); // '  R$ 23.00'
+// Retorne o último caracter da frase
+const frase = 'Melhor do ano!';
+console.log(frase[frase.length - 1]);
+console.log(frase.slice(-1));
+
+// Retorne o total de taxas
+const transacoes2 = [
+  'Taxa do Banco',
+  '   TAXA DO PÃO',
+  '  taxa do mercado',
+  'depósito Bancário',
+  'TARIFA especial',
+];
+let totalTaxa = 0;
+transacoes2.forEach((item) => {
+  item = item.toLocaleLowerCase().trim().slice(0, 4);
+
+  if (item === 'taxa') {
+    return totalTaxa++;
+  }
+});
+
+console.log(totalTaxa);

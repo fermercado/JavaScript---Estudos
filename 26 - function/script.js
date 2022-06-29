@@ -1,81 +1,36 @@
-// const perimetro = new Function('lado', 'return lado * 4');
+// Retorne a soma total de caracteres dos
+// parágrafos acima utilizando reduce
 
-// function somar(n1, n2) {
-//   return n1 + n2 + ' 2';
-// }
+const p = document.querySelectorAll('p')
 
-// console.log(somar);
+const total = Array.prototype.reduce.call(p, (acc,item) => {
+ return acc + item.innerText.length
+},0)
 
-// function darOi(nome) {
-//   console.log('Oi pra vc, ' + nome);
-// }
-
-// darOi.call({}, 'Fernando');
-
-// const carros = ['Ford', 'Fiat', 'VW'];
-// const frutas = ['banana', 'uva', 'pera']
-
-// carros.forEach.call(carros, (item) => {
-//   console.log(item);
-// });
-
-// function Dom(seletor) {
-//   this.element = document.querySelector(seletor);
-// }
-
-// Dom.prototype.ativo = function (classe) {
-//   this.element.classList.add(classe);
-// }
-// const ul = new Dom('ul');
-
-// console.log(ul)
-
-const frutas = ['banana', 'uva', 'pera']
+console.log(total)
 
 
-Array.prototype.pop.call(frutas)
 
 
-const arrayLike = {
-  0: 'item1',
-  1: 'item2',
-  2: 'item3',
-  length: 3
+// Crie uma função que retorne novos elementos
+// html, com os seguintes parâmetros
+// tag, classe e conteudo.
+
+function criarElemento (tag, classe, conteudo) {
+const elemento = document.createElement(tag)
+classe ? elemento.classList.add(classe) : null
+conteudo ? elemento.innerHTML = conteudo : null
+
+return elemento
 }
 
-const li = document.querySelectorAll('li')
-const filtro = Array.prototype.filter.bind(li, (item) => {
-  return item.classList.contains('ativo')
-})
+console.log(criarElemento('ul', 'ativo', "esse é o conteudo"))
 
-console.log(filtro)
+// Crie uma nova função utilizando a anterior como base
+// essa nova função deverá sempre criar h1 com a
+// classe titulo. Porém o parâmetro conteudo continuará dinâmico
 
 
-const carro = {
-  marca: 'Ford',
-  ano: 2018,
-  acelerar: function(aceleracao, tempo) {
-    return `${this.marca} acelerou ${aceleracao} em ${tempo}`;
-  }
-}
-carro.acelerar(100, 20);
-// Ford acelerou 100 em 20
+const h1Titulo = criarElemento.bind(null, 'h1', 'titulo')
 
-const honda = {
-  marca: 'Honda',
-};
-const acelerarHonda = carro.acelerar.bind(honda);
-acelerarHonda(200, 10);
-// Honda acelerou 200 em 10
-
-console.log(acelerarHonda(100,7))
-
-function imc(altura, peso) {
-  return peso / (altura * altura);
-}
-
-const imc180 = imc.bind(null, 1.80);
-
-imc(1.80, 70); // 21.6
-imc180(70); // 21.6
-
+console.log(h1Titulo('curso de javaScript'))
